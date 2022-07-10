@@ -36,31 +36,25 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
 5. The output is AUC (for 2-class problem only), C (confusion matrx) and Accuracy of the test set (at Line 28). It also gives ValErr which is the validation error.
 6. By default, trained CNN models and converted data will be saved in folder /Models/Run1/ and figures will be stored in folder /FIGS/Run1/. The saving of files are done by calling `func_SaveModels.m` and `func_SaveFigs.m`
 7. The execution results are stored in `DeepInsight3D_Results.txt` file in /DeepInsight3D_pkg/ folder.
-
-
-
-1. To check and run the package in a faster way,
-
-    * Go to Line 20 of DeepInsight_train_norm_CAM.m file and replace ‘MaxObj’,50,…, to ‘MaxObj’,2,… (This will allow only 2 objective functions to run on GPU).
-
-    * Go to Line 18 of DeepFeature.m and change `Parm.DesiredGenes = 8000`. This will run the code in one loop otherwise next loop with continue.
-
-2. Open the main file, DeepFeature.m and Run. A few messages will be displayed on the Command Window of Matlab, such as
+8. A few messages will be displayed by running Example1.m on the Command Window of Matlab, such as
 
     ```
-    Stage 2 Begins
-    Starting Data preparation by DeepInsight
-
-    Dataset: RNAseq
-
+    Dataset: PDX_Paclitaxel
+    
     NORM-2
     tSNE with burneshut algorithm has been used
+    Distance: euclidean
 
     Pixels: 227 x 227
-    Input Size 1 x Input Size 2: 227 x 227
-    Data Preparation ends
-    Training model begins
+    Training model begins: Net1
+    ...
+    Out =
+      struct with fields:
+      bestIdx: 1
+      fileName: "0.32624.mat"
+      valError: 0.3262
     ```
+
     *Note that the below values might differ.*
     ![](/images/status.png)
 
