@@ -1,4 +1,4 @@
-# DeepInsight3D
+# DeepInsight3D <in progress>
 DeepInsight3D package to deal with multi-omics or multi-layered data
 
 DeepInsight3D has 3 main components. 1) it converts multi-layered non-image samples (such as multi-omics) into colored image-forms (i.e. 3D image samples). 2) The images are applied to convolutional neural network (CNN). 3) It can also perform element selection via CNN, such as using class-activation maps (CAMs). 
