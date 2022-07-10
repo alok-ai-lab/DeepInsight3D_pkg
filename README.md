@@ -28,9 +28,16 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
 
 1. File: open Example1.m file in the Matlab Editor.
 
-2. Set up parameters by changing `Parameter.m` file. Based on your hardware, change `Parm.miniBatchSize` and `Parm.ExecutionEnvironment`. Alternatively, leave everything at default values.
+2. Set up parameters by changing `Parameter.m` file. Based on your hardware, change `Parm.miniBatchSize` (default 512) and `Parm.ExecutionEnvironment` (default multi-gpu. If you don't want to see the training progress plot by CNN then set `Parm.trainingPlot=none`. Alternatively, leave all parameters  at their default values.
 
 3. Dataset calling: since the dataset name is `dataset1.mat`, the variable `DSETnum=1` (at Line 17 of Example1.m) has been used. If the name of the dataset is `datasetX.m` then variable `DSETnum` should be `X`.
+
+4. Example1.m file uses function DeepInsight3D.m. This function has two parts: 1) tabular data to image convertion using `func_Prepare_Data.m`, and 2) CNN training using resent50 (default or change as required) using `func_TrainModel.m`.
+5. The output is AUC (for 2-class problem only), C (confusion matrx) and Accuracy of the test set (at Line 28). It also gives ValErr which is the validation error.
+6. By default, trained CNN models and converted data will be saved in folder /Models/Run1/ and figures will be stored in folder /FIGS/Run1/. The saving of files are done by calling `func_SaveModels.m` and `func_SaveFigs.m`
+7. The execution results are stored in `DeepInsight3D_Results.txt` file in /DeepInsight3D_pkg/ folder.
+
+
 
 1. To check and run the package in a faster way,
 
