@@ -53,6 +53,11 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
       bestIdx: 1
       fileName: "0.32624.mat"
       valError: 0.3262
+      
+    Stage: 1; Test Accuracy: 0.6744; ValErr: 0.3262;
+    Momentum: 0.801033; L2Regularization: 0.0125157; InitLearnRate: 4.9866e-05
+    
+    Training model ends
     ```
 
     *Note that the below values might differ.*
