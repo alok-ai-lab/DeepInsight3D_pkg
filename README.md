@@ -98,13 +98,11 @@ Running Example2.m will perform feature selection. However, steps are described 
     #Genes = 5205; #Genes_compressed = 3331
     Stage 1 Ends
     ```
-Images will be stored in FIGS folder. The following command can be used to open images (in unix):
+Images will be stored in FIGS folder. The following command can be used to open images in the unix console/terminal:
 
     
     eog ~/DeepInsight3D_pkg/FIGS/Run1/Stage1/Class_Activation.jpg
     
-
-asasa
     ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Class_Activation.jpg?raw=true)
     
 asasa    
