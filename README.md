@@ -267,20 +267,20 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
     The runtime results will be stored in `~/DeepFeature/DeepInsight3D_Results.txt` with complete information about the run.
 
-### Related materials
+## Related materials
 
-## DeepInsight YouTube
+### DeepInsight YouTube
 
 A YouTube video about the original DeepInsight method is available [here](https://www.youtube.com/watch?v=411iwaptk24&feature=youtu.be).
 A Matlab page on DeepInsight can be viewed from [here](https://www.mathworks.com/company/user_stories/case-studies/riken-develops-a-method-to-apply-cnn-to-non-image-data.html).
 
-## DeepInsight Paper
+### DeepInsight Paper
 Sharma et al., DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019.
 
-## DeepFeature Paper
+### DeepFeature Paper
 Sharma et al., DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
 
-## Winning Kaggel competition by Mark Peng
+### Winning Kaggel competition by Mark Peng
 Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
 Organizers: MIT and Harvard University
 DeepInsight EfficientNet-B3 Noisy Student https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook
