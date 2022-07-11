@@ -277,6 +277,9 @@ A Matlab page on DeepInsight can be viewed from [here](https://www.mathworks.com
 ### DeepInsight Paper
 Sharma et al., DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019.
 
+### GitHub weblink of DeepInsight (Python and Matlab)
+Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
+
 ### DeepFeature Paper
 Sharma et al., DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
 
