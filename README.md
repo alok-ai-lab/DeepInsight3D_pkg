@@ -60,11 +60,10 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
     Training model ends
     ```
 
-    *Note that the below values might differ.*
+    *Note that the above values might differ.*
+
+    Objective function image will be shown for the Bayesian Optimization Technique (BOT). By default 'no BOT' will be applied; i.e. `Parm.MaxObj=1`. However, if BOT is required then change parameter `Parm.MaxObj' value. If it is set as '20' then 20 objective functions will be searched for hyperparameters tuning and the best one (with the minimum validation error) will be selected.
     ![](/images/status.png)
-
-    Objective function image will be shown for the Bayesian Optimization Technique
-
     ![](/images/bayesopt.png)
 
     ![](/images/results.png)
