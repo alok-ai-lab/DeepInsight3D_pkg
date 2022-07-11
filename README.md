@@ -95,6 +95,8 @@ Running Example2.m will perform feature selection. However, steps are described 
     
     Files saved in the FIGS folder
     Files saved in the Models folder
+    #Genes = 5205; #Genes_compressed = 3331
+    Stage 1 Ends
     ```
 
     ![](/images/status.png)
