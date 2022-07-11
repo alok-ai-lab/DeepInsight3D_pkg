@@ -164,17 +164,17 @@ Steps:
 
 ## Description of files and folders
 
-1. DeepFeature_pkg has 4 folders: Data, DeepResults, FIGS and Models. It has several .m files. However, the main file is ‘DeepFeature.m’. All the parameter settings can be done in this file.
+1. `DeepInsight3D_pkg` has 4 folders: Data, DeepResults, FIGS and Models. It has several .m files. However, the main files are 1) `Deepinsight3D.m` to peform image conversion and CNN modeling, and 2) `func_FS_classbasedCAM.m` to perform feature selection. All the parameter settings can be done in `Parameters.m` file.
 
-2. DeepFeature.m has 3 main functions:
+2. DeepInsight3D.m has 2 main functions:
 
-    * `func_Prepare_Data`: This function loads the data, splits the training data into the Train and Validation sets, normalizes all the 3 sets (including Test set), and converts non-image samples to image form using the Train set. The Test and Validation sets are not used to find pixel locations. Once the pixel locations are obtained, all the non-image samples are converted to image samples. The image datasets are stored as Out1.mat or Out2.mat.
+    * `func_Prepare_Data`: This function loads the data, splits the training data into the Train and Validation sets, normalizes all the 3 sets (including Test set), and converts multi-layered non-image samples to 3D image form using the Training set. The Test and Validation sets are not used to find pixel locations. Once the pixel locations are obtained, all the non-image samples are converted to 3D image samples. The image datasets are stored as Out1.mat or Out2.mat depending on whether norm1 or norm2 was executed.
 
-    * `func_TrainModel`: This function executes the convolution neural network (CNN) using SqueezeNet architecture. However, the user may change the net as required. It optimizes hyper-parameters using the Bayesian Optimization Technique. The nets are modified so that feature selection can be performed. It uses Train set and Validation set to tune and evaluate the model hyper-parameters.
+    * `func_TrainModel`: This function executes the convolution neural network (CNN) using many pretrained and custom nets. The user may change the net as required. The default values of hyperparameters for CNN are used. However, if `Parm.MaxObj` is greater than 1 then it optimizes hyper-parameters using the Bayesian Optimization Technique. It uses Training set and Validation set to tune and evaluate the model hyper-parameters.
 
-        Note: To test the code more quickly (as discussed above), please replace the number of the maximum objective function to 1 or 2 in Line 20 of DeepInsight_train_norm_CAM.m file. By default it is fifty; i.e., ‘MaxObj’,50,…, change to ‘MaxObj’,2,… (for example).
+        Note: To tune hyperparameters of CNN automatically, use a higher value of `Parm.MaxObj`.
 
-        The best evaluation is stored in DeepResults folder as .mat files, where the file name depicts the best validation error achieved. For example, file 0.035778.mat in DeepResults folder tells the hyper-parameters at validation error 0.035778. Also, the model file model.mat detailing the nets will be stored.
+        The best evaluation is stored in DeepResults folder as .mat files, where the file name depicts the best validation error achieved. For example, file 0.32624.mat in DeepResults folder tells the hyper-parameters at validation error 0.32624. Also, the model file `model.mat` detailing the nets will be stored.
 
     * `func_FeatureSelection`: This will find activation maps at the ReLu layer, perform Region Accumulation (RA) step and Element Decoder step to find gene subset. The input is model.mat (from `func_TrainModel`) and related .mat file from the folder DeepResults. The net used is squeeznet. However, if different nets are used then netName at Line 6 of func_FeatureSelection.m file should be changed accordingly.
 
