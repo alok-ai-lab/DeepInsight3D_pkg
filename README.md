@@ -71,7 +71,7 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
     25  13
     1   4
     ```
-###Example 2: Feature selection of saved model
+### Example 2: Feature selection of saved model
 In this example, feature selection using class-activation maps (CAMs) is executed. It is assumed that Example 1 has been run before running this example. Running Example 1 will save model files in Models/Run.. folder, and also the data file Out1.mat (if norm1 is used) or Out2.mat (if norm2 is used).
 
     ![](/images/status.png)
