@@ -290,5 +290,6 @@ Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/
 
 DeepInsight EfficientNet-B3 Noisy Student [here](https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook)
 
-### Usage of DeepInsight by Subject Area (source: Scopus)
+### Usage of DeepInsight by Subject Area
 ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Docs_by_Subject.png?raw=true)
+#### source: Scopus
