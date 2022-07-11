@@ -74,6 +74,29 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
 ### Example 2: Feature selection of saved model
 In this example, feature selection using class-activation maps (CAMs) is executed. It is assumed that Example 1 has been run before running this example. Running Example 1 will save model files in Models/Run.. folder, and also the data file Out1.mat (if norm1 is used) or Out2.mat (if norm2 is used).
 
+Running Example2.m will perform feature selection. However, steps are described here under.
+
+1.  copy saved model files in the correct folders
+    ```
+    unix(['cp Models/Run1/stage1/model.mat .']);
+    unix(['cp Models/Run1/stage1/0.*.mat DeepResults']);
+    ```
+2.  Dataset is still the same therefore parameter `DSETnum=1`. Call parameters using `Parm = Parameters(DSETnum);`
+3.  Set CAM threshold `Parm.Threshold = 0.35;`
+4.  Execute classed-based CAm using `func_FS_class_basedCAM(Parm);` as shown in Example2.m (Line 29). The following information will be displayed on the screen.
+
+    ```
+    Feature selection begins
+    model = 
+       struct with fields
+       Norm: 2
+       bestIdx: 1
+       fileName: '0.32624.mat'
+    
+    Files saved in the FIGS folder
+    Files saved in the Models folder
+    ```
+
     ![](/images/status.png)
     ![](/images/bayesopt.png)
 
