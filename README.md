@@ -111,42 +111,47 @@ Vary the threshold `Parm.Threshold` between 0 and 1 to vary the number of select
 Features selected per class can also be viewed from FIGS/Run1/ folder.
     ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Genes_PerClass.jpg?raw=true)
 
-asasa
+### Example 3: Feature selection using iterative procedure
+In this example, feature selection using CAMs is performed in an iterative manner. There are 3 steps in this iterative procedure:
+1)  conversion of multi-layered tabular data to 3D image.
+2)  estimation of CNN net using the training set and validation using the validation set.
+3)  feature selection using CAMs
+4)  repeating the above 3 steps until a desired number of features or maximum of 6 stages is reached. At this point, iterative procedure will be terminated.
 
-    ![](/images/bayesopt.png)
+*Caution: this procedure could take a very long processing time (depending upon hardware specs)*
 
-    ![](/images/results.png)
-    ```
-    Stage: 2; Test Accuracy: 0.9614; ValErr: 0.0340;
-    Momentum: 0.806168; L2Regularization: 0.00253334; InitLearnRate: 6.65972e-05
-    Training model ends
+Running Example3.m will execute iterative procedure. However, steps are described hereunder.
 
-    Feature selection begins
-    ```
-    ![](/images/model.png)
-    ```
-    Starting parallel pool (parpool) using the ‘local’ profile . . .
-    Connected to the parallel pool (number of workers: 20).
-    ```
+Steps:
+1)  Set up parameters by changing Parameters.m file, otherwise leave it with default values.
+2)  Provide the path od dataset in Parameter.m file by changing "Data_path" variable. In this example, it is set as /DeepInsight3D_pkg/Data/
+3)  Define the stored dataset using 
+        `DSETnum=1;`
+5)  Call parameters using 
+        `Parm = Parameters(DSETnum);`
+7)  For testing code, reduce the MaxEpochs e.g. 
+        `Parm.MaxEpochs = 5;`
+    for better training it would be good to have higher value of MaxEpochs.
+    
+9)  Set the CAM Threshold 
+        `Parm.Threshold = 0.3;`
+11)  Suppress training plot (otherwise several plots will be invoked for every Stage)
+        `Parm.trainingPlot = 'none';`
+13)  Define the folder where models to be stored
+        `Parm.FileRun = 'Run2';`
+15)  The following code will perform iterative procedure:
 
-    Some images will be shown, e.g.:
+        ```
+        Glen = inf;
+        while (Glen > Parm.DesiredGenes) & (Parm.Stage < 7)
+            [AUC,C,Accuracy,ValErr] = DeepInsight3D(DSETnum,Parm);
+            [Genes,Genes_compressed,G] = func_FS_class_basedCAM(Parm);
+            Glen = length(Genes);
+            Parm.Stage = Parm.Stage + 1;
+        end
+        ```
 
-    ![](/images/image1.png)
-    ![](/images/image2.png)
-    ![](/images/image3.png)
-    ![](/images/image4.png)
-
-    ```
-    TIME = 770.6822
-
-    Saved …
-    Files Saved …
-
-    #Genes = 5539; #Genes_compress = 3613
-    Feature selection ends
-    Stage 2 Ends
-    ```
-
+ 
 ### Note:
 
 * All the results will be stored in current stage folder
