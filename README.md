@@ -109,8 +109,9 @@ Class activation image is given below. Since only two classes exist, the figure 
 Vary the threshold `Parm.Threshold` between 0 and 1 to vary the number of selected features/genes.
 
 Features selected per class can also be viewed from FIGS/Run1/ folder.
+    ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Genes_PerClass.jpg?raw=true)
 
-
+asasa
 
     ![](/images/bayesopt.png)
 
