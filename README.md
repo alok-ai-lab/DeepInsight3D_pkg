@@ -62,7 +62,16 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
 
     *Note that the above values might differ.*
 
-    Objective function image will be shown for the Bayesian Optimization Technique (BOT). By default 'no BOT' will be applied; i.e. `Parm.MaxObj=1`. However, if BOT is required then change parameter `Parm.MaxObj' value. If it is set as '20' then 20 objective functions will be searched for hyperparameters tuning and the best one (with the minimum validation error) will be selected.
+    Objective function image will be shown for the Bayesian Optimization Technique (BOT). By default 'no BOT' will be applied; i.e. `Parm.MaxObj=1`. However, if BOT is required then change parameter `Parm.MaxObj' value higher than 1. If it is set as '20' then 20 objective functions will be searched for hyperparameters tuning and the best one (with the minimum validation error) will be selected.
+    
+    Results file: check `DeepInsight3D_Results.txt` for more information, such as
+    ```
+    AUC: 0.7789
+    ConfusionMatrix
+    25  13
+    1   4
+    ```
+    
     ![](/images/status.png)
     ![](/images/bayesopt.png)
 
