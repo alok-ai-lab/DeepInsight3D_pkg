@@ -281,4 +281,6 @@ Sharma et al., DeepInsight: A methodology to transform a non-image data to an im
 Sharma et al., DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
 
 ## Winning Kaggel competition by Mark Peng
+Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
+Organizers: MIT and Harvard University
 DeepInsight EfficientNet-B3 Noisy Student https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook
