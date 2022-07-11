@@ -82,7 +82,7 @@ Running Example2.m will perform feature selection. However, steps are described 
     unix(['cp Models/Run1/stage1/0.*.mat DeepResults']);
     ```
 2.  Dataset is still the same therefore parameter `DSETnum=1`. Call parameters using `Parm = Parameters(DSETnum);`
-3.  Set CAM threshold `Parm.Threshold = 0.35;`
+3.  Set CAM threshold e.g. `Parm.Threshold = 0.35;`
 4.  Execute classed-based CAm using `func_FS_class_basedCAM(Parm);` as shown in Example2.m (Line 29). The following information will be displayed on the screen.
 
     ```
@@ -106,7 +106,12 @@ Images will be stored in FIGS folder. The following command can be used to open 
 Class activation image is given below. Since only two classes exist, the figure shows 'class1' and 'class2' activations.    
     ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Class_Activation.jpg?raw=true)
     
-asasa    
+Vary the threshold `Parm.Threshold` between 0 and 1 to vary the number of selected features/genes.
+
+Features selected per class can also be viewed from FIGS/Run1/ folder.
+
+
+
     ![](/images/bayesopt.png)
 
     ![](/images/results.png)
