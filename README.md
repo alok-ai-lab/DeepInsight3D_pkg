@@ -155,12 +155,12 @@ Steps:
 ### Note:
 
 * All the results will be stored in current stage folder
- `~/DeepFeature_pkg/Models/Run1/StageX`  where X is the current stage; i.e., ‘2’ here.
+ `~/DeepInsight3D_pkg/Models/Run2/StageX`  where X is the current stage;
 
 * Similarly, all the figures will be stored in a folder
-`~/DeepFeature_pkg/FIGS/Run1/StageX` where X is the current stage; i.e., ‘2’ here.
+`~/DeepInsight3D_pkg/FIGS/Run1/StageX` where X is the current stage.
 
-* If the loop continues then the value of X will increment to 3, 4, …; i.e., repeating DeepFeature model to find a smaller subset of genes.
+* If the loop continues then the value of X will increment to 2, 3, 4, …; i.e., repeating DeepInsight3D model to find a smaller subset of features/genes.
 
 ## Description of files and folders
 
