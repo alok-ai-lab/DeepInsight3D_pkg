@@ -176,23 +176,25 @@ Steps:
 
         The best evaluation is stored in DeepResults folder as .mat files, where the file name depicts the best validation error achieved. For example, file 0.32624.mat in DeepResults folder tells the hyper-parameters at validation error 0.32624. Also, the model file `model.mat` detailing the nets will be stored.
 
-    * `func_FeatureSelection`: This will find activation maps at the ReLu layer, perform Region Accumulation (RA) step and Element Decoder step to find gene subset. The input is model.mat (from `func_TrainModel`) and related .mat file from the folder DeepResults. The net used is squeeznet. However, if different nets are used then netName at Line 6 of func_FeatureSelection.m file should be changed accordingly.
+3. Feature selection functions
+    * `func_FeatureSelection`: This will find activation maps at the ReLu layer, perform Region Accumulation (RA) step and Element Decoder step to find gene subset. The input is model.mat (from `func_TrainModel`) and related .mat file from the folder DeepResults. This function finds CAM for each sample and provide the union of all maps.
+    * `func_FS_class_basedCAM`: This function performs class-based CAM, i.e., each class will have a distinct CAM.
+    * `func_FeatureSelection_avgCAM`: This function finds the common CAM across all the samples.
 
-3. Non-image to image conversion: two core sub-functions of `func_Prepare_Data` are used to convert samples from non-image to image. These are described below.
+4. Non-image to image conversion: two core sub-functions of `func_Prepare_Data` are used to convert samples from non-image to image. These are described below.
 
-    * `Cart2Pixel`: The input to this function is the entire Train set. The output is the feature or gene locations Z in the pixel frame. The size of the pixel frame is pre-defined.
+    * `Cart2Pixel`: The input to this function is the entire Training set. The output is the feature or gene locations Z in the pixel frame. The size of the pixel frame is pre-defined by the user.
 
     * `ConvPixel`: The input is a non-image sample or feature vector and Z (from above). The output is an image sample corresponding to the input sample.
 
-4. Compression Snow-fall algorithm (SnowFall.m): The compression algorithm is used to provide more space for features in the given pixel frame. Since the conversion from Cartesian coordinates system to the pixel frame depends on the pixel resolution, it becomes difficult to fit all the features without overlapping each other. This algorithm tries to create more space such that the overlapping of feature or gene location can be minimized. The input is the locations of genes or features with the pixel size information. The output is the readjusted image. It is up to the user to use Snow-fall compression or not.
+4. Compression Snow-fall algorithm (SnowFall.m): Not used in this package. However, this compression algorithm is used to provide more space for features in the given pixel frame. Since the conversion from Cartesian coordinates system to the pixel frame depends on the pixel resolution, it becomes difficult to fit all the features without overlapping each other. This algorithm tries to create more space such that the overlapping of feature or gene location can be minimized. The input is the locations of genes or features with the pixel size information. The output is the readjusted image. It is up to the user to use Snow-fall compression or not by setting `Parm.SnowFall` to either `0` (not use) or `1` (use).
 
-5. Extraction of Gene Names (optional): This option is useful for enrichment analysis. Two files for extraction of genes are GeneNames_Extract.m and GeneNames.m. The list of names of genes is stored in `~/DeepFeature_pkg/Data` folder.
+5. Extraction of Gene Names (optional): This option is useful for enrichment analysis. Two files for extraction of genes are GeneNames_Extract.m and GeneNames.m. The list of names of genes is stored in `~/DeepInsight3D_pkg/Models/RunY/StageX/` folder.
 
-    After running DeepFeature results will be stored in corresponding RunY and StageX folders (where X and Y are integers 1,2,3…). If it is required to find the gene IDs/names of the obtained subset for each cancer type, then execute `GeneNames_Extract` function. Go to Line 4, and set the `Out_Stages` variable. Since Stage 2 has been saved inside Run1 after executing DeepInsight the first time, use `Out_Stages = 2`. Then go to Line 5 and define `FileRun`. For example, it is set as `FileRun = ‘Run1’`.
+    After running feature selection function, the results will be stored in the corresponding RunY and StageX folders (where X and Y are integers 1,2,3…). If it is required to find the gene IDs/names of the obtained subset for each cancer type, then execute `GeneNames_Extract` function. Go to Line 4, and set the `Out_Stages` variable. For e.g. if Stage 2 has been saved inside Run1 after executing `func_FS_class_basedCAM`, use `Out_Stages = 2`. Then go to Line 6 and define `FileRun`. For example, it is set as `FileRun = ‘Run1’`.
 
-    The gene list per class will be generated. Since here we used 10 cancer-types, so 10 files will be generated. In addition, one file with all genes listed will be generated (e.g. GeneList_UnCmprss.txt). The results will be stored in `~/Models/RunY/StageX` as RunYStageX.tar.gz and a folder with the same results will also be created as RunYStageX. In this example, it will be stored in the folder `Run1Stage2` and Run1Stage2.tar.gz.
+    The gene list per class will be generated. If there are 10 cancer-types, then 10 files will be generated. In addition, one file with all genes listed will be generated (e.g. GeneList_UnCmprss.txt). The results will be stored in `~/Models/RunY/StageX` as RunYStageX.tar.gz and a folder with the same results will also be created as RunYStageX. In this example, it will be stored in the folder `Run1Stage2` and Run1Stage2.tar.gz.
 
-6. Combining subsets of genes (optional): gene subsets can be combined, i.e., the union of individual gene lists obtained from different runs. In the paper, different gene subsets were combined to have a more comprehensive selection of genes for different distances used in tSNE. If a user wants to combine or have a union of genes/features then GenesFromRuns.m can be executed. Please select the gene lists by defining their path (e.g. at Line 5, line 19 if 2 gene subsets are to be combined). The overall combined gene list and combined lists for each cancer-type or class will be stored. The gene names will be stored following the TCGA file given. However, for your data, place the file in Data folder, and change Line 91 corresponding to the name of your file.
 
 ## Parameter settings to run the package
 
