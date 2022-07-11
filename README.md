@@ -204,21 +204,21 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
     Dimensionality reduction technique can be considered as one of the following methods; 1) tSNE 2) Principal component analysis (PCA) 3) kernel PCA, 4) uniform manifold approximation and projection (umap). For umap you can use python or R scripts (please see umapa_Rmatlab.m).
 
-    Select this variable in DeepFeature.m file (Line 4) as
+    Select this variable in Parameter.m file or after calling `Parm = Parameter(DSETnum)` change
 
     Parm.Method = ‘tSNE’, ‘kpca’, ‘pca’ or ‘umap’
 
     Default is tSNE.
 
-2. `Parm.Dist` (Distance selection)
+2. `Parm.Dist` (Distance selection only for tSNE)
 
-    If tSNE is used, then one of the following distances can be used. The default distance is ‘cosine’.
+    If tSNE is used, then one of the following distances can be used. The default distance is ‘euclidean’.
 
     Parm.Dist = ‘cosine’, ‘hamming’, ‘mahalanobis’, ‘educidean’, ‘chebychev’, ‘correlation’, ‘minkowski’, ‘jaccard’, or ‘seuclidean’ (standardized Eucliden distance).
 
 3. `Parm.Max_Px_Size` (maximum pixel frame either row or column)
 
-    The default value is 227 as required by SqueezeNet architecture.
+    The default value is 224 as required by ResNet-50 architecture.
 
 4. `Parm.ValidRatio` (ratio of validation data and training data)
 
@@ -240,7 +240,7 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
 8. `Parm.Threshold` (for Class Activation Maps)
 
-    Set the threshold of class activation maps (CAMs) by changing the value between 0 and 1. If the value is high (towards 1), then the region of activation maps will be very fine. On the other hand, the region will be broader towards value 0. Default is 0.6. However, 0.45 was also used to produce some results in the paper.
+    Set the threshold of class activation maps (CAMs) by changing the value between 0 and 1. If the value is high (towards 1), then the region of activation maps will be very fine. On the other hand, the region will be broader towards value 0. Default is 0.3. 
 
 9. `Parm.DesiredGenes`
 
@@ -248,7 +248,7 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
 10. `Parm.UsePrevModel`
 
-    DeepFeature is running in multiple stages. If you want to avoid running CNN multiple times then set these values as ‘y’ (yes); i.e., the previous weights of CNN will be used for the current model. This way, the processing time is shorter, however, performance (in terms of selection and accuracy) would be lower. The default setting is ‘n’ (no).
+    The iterative way runs in multiple stages. If you want to avoid running CNN multiple times then set these values as ‘y’ (yes); i.e., the previous weights of CNN will be used for the current model. This way, the processing time is shorter, however, performance (in terms of selection and accuracy) would be lower. The default setting is ‘n’ (no).
 
 11. `Parm.SaveModels`
 
@@ -256,19 +256,29 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
 12. `Parm.Stage`
 
-    Define the stage of execution. If you are running DeepFeature on your new data, then put `Parm.Stage=1`. All the results will be saved in RunXStage1. If DeepFeature continues with the loop to find a smaller number of genes then Stage2, Stage3…, will be automatically processed and results will be saved in RunXStage2, RunXStage3,…, and so on.
+    Define the stage of execution. The default value is set as `Parm.Stage=1`. All the results will be saved in RunXStage1. If iterative process is executed then results will be stored in Stage2, Stage3… and so on.
 
-    In the example, Stage2 is used because some genes are prefiltered and the row information of the selected ones was given in `Run1/Stage1/`.
 
 13. Paths
 
-    Default paths for FIGS, Models and Data are `~/DeepFeature/FIGS/`, `~/DeepFeature/Models/` and `~/DeepFeature/Data/`, respectively. Runtime parameters will be stored in `~/DeepFeature/` folder (such as model.mat, Out1.mat or Out2.mat).
+    Default paths for FIGS, Models and Data are `~/DeepInsight3D_pkg/FIGS/`, `~/DeepInsight3D_pkg/Models/` and `~/DeepInsight3D/Data/`, respectively. Runtime parameters will be stored in `~/DeepInsight3D_pkg/` folder (such as model.mat, Out1.mat or Out2.mat).
 
 14. Log and performance file (including an overview of parameter information)
 
-    The runtime results will be stored in `~/DeepFeature/DeepFeature_Results.txt` with complete information about the run.
+    The runtime results will be stored in `~/DeepFeature/DeepInsight3D_Results.txt` with complete information about the run.
 
-## DeepInsight
+### Related materials
+
+## DeepInsight YouTube
 
 A YouTube video about the original DeepInsight method is available [here](https://www.youtube.com/watch?v=411iwaptk24&feature=youtu.be).
 A Matlab page on DeepInsight can be viewed from [here](https://www.mathworks.com/company/user_stories/case-studies/riken-develops-a-method-to-apply-cnn-to-non-image-data.html).
+
+## DeepInsight Paper
+Sharma et al., DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019.
+
+## DeepFeature Paper
+Sharma et al., DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
+
+## Winning Kaggel competition by Mark Peng
+DeepInsight EfficientNet-B3 Noisy Student https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook
