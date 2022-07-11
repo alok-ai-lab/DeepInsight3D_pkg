@@ -103,7 +103,8 @@ Images will be stored in FIGS folder. The following command can be used to open 
     ```
     eog ~/DeepInsight3D_pkg/FIGS/Run1/Stage1/Class_Activation.jpg
     ```
-    
+
+asasa
     ![](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Class_Activation.jpg)
     ![](/images/bayesopt.png)
 
