@@ -100,12 +100,14 @@ Running Example2.m will perform feature selection. However, steps are described 
     ```
 Images will be stored in FIGS folder. The following command can be used to open images (in unix):
 
-    ```
+    
     eog ~/DeepInsight3D_pkg/FIGS/Run1/Stage1/Class_Activation.jpg
-    ```
+    
 
 asasa
-    ![](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Class_Activation.jpg)
+    ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Class_Activation.jpg?raw=true)
+    
+asasa    
     ![](/images/bayesopt.png)
 
     ![](/images/results.png)
