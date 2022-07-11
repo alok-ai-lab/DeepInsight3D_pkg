@@ -34,7 +34,7 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
 
 4. Example1.m file uses function DeepInsight3D.m. This function has two parts: 1) tabular data to image convertion using `func_Prepare_Data.m`, and 2) CNN training using resent50 (default or change as required) using `func_TrainModel.m`.
 5. The output is AUC (for 2-class problem only), C (confusion matrx) and Accuracy of the test set (at Line 28). It also gives ValErr which is the validation error.
-6. By default, trained CNN models (such as model.mat 0.*.mat) and converted data (either Out1.mat or Out2.mat) will be saved in folder /Models/Run1/ and figures will be stored in folder /FIGS/Run1/. The saving of files are done by calling `func_SaveModels.m` and `func_SaveFigs.m`
+6. By default, trained CNN models (such as model.mat, 0*.mat) and converted data (either Out1.mat or Out2.mat) will be saved in folder /Models/Run1/ and figures will be stored in folder /FIGS/Run1/. The saving of files are done by calling `func_SaveModels.m` and `func_SaveFigs.m`
 7. The execution results are stored in `DeepInsight3D_Results.txt` file in /DeepInsight3D_pkg/ folder.
 8. A few messages will be displayed by running Example1.m on the Command Window of Matlab, such as
 
@@ -72,6 +72,7 @@ In this example, multi-omics example data (PDX_Paclitaxel) which is saved in Dee
     1   4
     ```
 ###Example 2: Feature selection of saved model
+In this example, feature selection using class-activation maps (CAMs) is executed. It is assumed that Example 1 has been run before running this example. Running Example 1 will save model files in Models/Run.. folder, and also the data file Out1.mat (if norm1 is used) or Out2.mat (if norm2 is used).
 
     ![](/images/status.png)
     ![](/images/bayesopt.png)
