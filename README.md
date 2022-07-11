@@ -103,6 +103,7 @@ Images will be stored in FIGS folder. The following command can be used to open 
     
     eog ~/DeepInsight3D_pkg/FIGS/Run1/Stage1/Class_Activation.jpg
     
+Class activation image is given below. Since only two classes exist, the figure shows 'class1' and 'class2' activations.    
     ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Class_Activation.jpg?raw=true)
     
 asasa    
