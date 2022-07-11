@@ -283,7 +283,7 @@ Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
 ### DeepFeature Paper
 Sharma et al., DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
 
-### Winning Kaggel competition by Mark Peng
+### Winning Kaggle competition by Mark Peng
 Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
 
 Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
