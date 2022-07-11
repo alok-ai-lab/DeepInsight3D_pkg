@@ -282,5 +282,7 @@ Sharma et al., DeepFeature: feature selection in nonimage data using convolution
 
 ### Winning Kaggel competition by Mark Peng
 Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
+
 Organizers: MIT and Harvard University
+
 DeepInsight EfficientNet-B3 Noisy Student https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook
