@@ -284,7 +284,7 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
     Define the stage of execution. The default value is set as `Parm.Stage=1`. All the results will be saved in RunXStage1. If iterative process is executed then results will be stored in Stage2, Stage3… and so on.
 
 
-24. Paths
+24. `Parm.PATH`
 
     Default paths for FIGS, Models and Data are `~/DeepInsight3D_pkg/FIGS/`, `~/DeepInsight3D_pkg/Models/` and `~/DeepInsight3D/Data/`, respectively. Runtime parameters will be stored in `~/DeepInsight3D_pkg/` folder (such as model.mat, Out1.mat or Out2.mat).
 
