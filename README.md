@@ -305,7 +305,7 @@ A YouTube video about the original DeepInsight method is available [here](https:
 A Matlab page on DeepInsight can be viewed from [here](https://www.mathworks.com/company/user_stories/case-studies/riken-develops-a-method-to-apply-cnn-to-non-image-data.html).
 
 ### DeepInsight Paper
-* Sharma A, Vans E, Shigemizu D, Boroevich KA, Tsunoda T, DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019. *
+*Sharma A, Vans E, Shigemizu D, Boroevich KA, Tsunoda T, DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019.*
 
 ### GitHub weblink of DeepInsight (Python and Matlab)
 Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
