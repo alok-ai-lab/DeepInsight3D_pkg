@@ -305,16 +305,18 @@ A YouTube video about the original DeepInsight method is available [here](https:
 A Matlab page on DeepInsight can be viewed from [here](https://www.mathworks.com/company/user_stories/case-studies/riken-develops-a-method-to-apply-cnn-to-non-image-data.html).
 
 ### DeepInsight Paper
-Sharma et al., DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019.
+* Sharma A, Vans E, Shigemizu D, Boroevich KA, Tsunoda T, DeepInsight: A methodology to transform a non-image data to an image for convolution neural network architecture, Scientifi Reports, 9(1), 1-7, 2019. *
 
 ### GitHub weblink of DeepInsight (Python and Matlab)
 Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
 
 ### DeepFeature Paper
-Sharma et al., DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
+Sharma A, Lysenko A, Boroevich KA, Vans E, Tsunoda T, DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
 
 ### Winning Kaggle competition by Mark Peng
 Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
+
+Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.
 
 Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
 
