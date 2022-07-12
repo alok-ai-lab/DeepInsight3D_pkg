@@ -311,12 +311,12 @@ A Matlab page on DeepInsight can be viewed from [here](https://www.mathworks.com
 Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
 
 ### DeepFeature Paper
-Sharma A, Lysenko A, Boroevich KA, Vans E, Tsunoda T, DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.
+*Sharma A, Lysenko A, Boroevich KA, Vans E, Tsunoda T, DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.*
 
 ### Winning Kaggle competition by Mark Peng
 Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
 
-Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.
+*Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.*
 
 Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
 
