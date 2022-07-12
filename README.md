@@ -24,7 +24,7 @@ Sharma A, et al. ...  TBA
 
 3. Follow the link: (http:/... TBA ... /dataset1.mat) to download PDX_Paclitaxel multi-omics data the RNA-seq data (caution: data size is 88MB). The dataset is given in .mat file format of Matlab. Place the data file ‘dataset1.mat’ in the folder, `~/DeepInsight3D_pkg/Data/`
 
-4. Download and Install example CNN net such as ResNet-50 in Matlab, see details about ResNet-50 from MathWorks [link](https://www.mathworks.com/help/deeplearning/ref/resnet50.html).
+4. Download and Install example CNN net such as ResNet-50 in Matlab, see details about ResNet-50 from MathWorks [link](https://www.mathworks.com/help/deeplearning/ref/resnet50.html). You may use different nets as desired.
 
 5. Executing the DeepInsight3D_pkg: all code should run in the folder ../DeepInsight3D_pkg/, if you want to run in a different folder then addpath in Matlab
 
