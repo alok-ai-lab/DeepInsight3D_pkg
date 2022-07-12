@@ -1,0 +1,176 @@
+
+Norm-2 valError 0.4948
+
+DeepInsight valErr: 0.4948
+
+Norm-2 valError 0.4732
+
+DeepInsight valErr: 0.4732
+
+Norm-2 valError 0.2272
+
+DeepInsight valErr: 0.2272
+
+Norm-2 valError 0.4282
+
+DeepInsight valErr: 0.4282
+
+Norm-2 valError 0.5039
+
+DeepInsight valErr: 0.5039
+
+Norm-2 valError 0.3818
+
+DeepInsight valErr: 0.3818
+
+Norm-2 valError 0.6154
+
+DeepInsight valErr: 0.6154
+
+Norm-2 valError 0.2796
+
+DeepInsight valErr: 0.2796
+
+Norm-2 valError 0.3262
+
+DeepInsight valErr: 0.3262
+
+Norm-2 valError 0.2796
+
+DeepInsight valErr: 0.2796
+
+Norm-2 valError 0.2473
+
+DeepInsight valErr: 0.2473
+
+Norm-2 valError 0.2581
+
+DeepInsight valErr: 0.2581
+
+Norm-2 valError 0.3262
+
+DeepInsight valErr: 0.3262
+
+Norm-2 valError 0.2955
+
+DeepInsight valErr: 0.2955
+
+Norm-2 valError 0.4062
+
+DeepInsight valErr: 0.4062
+
+Norm-2 valError 0.4661
+
+DeepInsight valErr: 0.4661
+
+Norm-2 valError 0.1828
+
+DeepInsight valErr: 0.1828
+
+Norm-2 valError 0.1828
+
+DeepInsight valErr: 0.1828
+
+Norm-2 valError 0.0682
+
+DeepInsight valErr: 0.0682
+
+Norm-2 valError 0.2386
+
+DeepInsight valErr: 0.2386
+
+Norm-2 valError 0.3475
+
+DeepInsight valErr: 0.3475
+
+Norm-2 valError 0.1828
+
+DeepInsight valErr: 0.1828
+
+Norm-2 valError 0.1935
+
+DeepInsight valErr: 0.1935
+
+Norm-2 valError 0.2796
+
+DeepInsight valErr: 0.2796
+
+Norm-2 valError 0.3617
+
+DeepInsight valErr: 0.3617
+
+Norm-2 valError 0.3262
+
+DeepInsight valErr: 0.3262
+
+Norm-2 valError 0.3262
+
+DeepInsight valErr: 0.3262
+
+Norm-2 valError 0.4043
+
+DeepInsight valErr: 0.4043
+
+Norm-2 valError 0.3972
+
+DeepInsight valErr: 0.3972
+
+Norm-2 valError 0.3688
+
+DeepInsight valErr: 0.3688
+
+Norm-2 valError 0.4752
+
+DeepInsight valErr: 0.4752
+
+Norm-2 valError 0.3262
+
+DeepInsight valErr: 0.3262
+
+Norm-2 valError 0.4043
+
+DeepInsight valErr: 0.4043
+
+Norm-2 valError 0.3475
+
+DeepInsight valErr: 0.3475
+
+Norm-2 valError 0.3759
+
+DeepInsight valErr: 0.3759
+
+Norm-2 valError 0.3262
+
+DeepInsight valErr: 0.3262
+
+Norm-2 valError 0.3191
+
+DeepInsight valErr: 0.3191
+
+Norm-2 valError 0.3546
+
+DeepInsight valErr: 0.3546
+
+Norm-2 valError 0.3617
+
+DeepInsight valErr: 0.3617
+
+Norm-2 valError 0.4043
+
+DeepInsight valErr: 0.4043
+
+Norm-2 valError 0.3972
+
+DeepInsight valErr: 0.3972
+
+Norm-2 valError 0.4184
+
+DeepInsight valErr: 0.4184
+
+Norm-2 valError 0.2979
+
+DeepInsight valErr: 0.2979
+
+Norm-2 valError 0.4468
+
+DeepInsight valErr: 0.4468

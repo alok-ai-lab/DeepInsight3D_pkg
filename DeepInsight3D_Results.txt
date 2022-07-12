@@ -1,0 +1,97 @@
+
+Run1
+SnowFall: 0
+Method: tsne
+Distance: euclidean
+Use Previous Model: n
+Stage 1
+Net: resnet50
+ObjFcnMeasure: accuracy
+Stage: 1; Test Accuracy: 0.6744; ValErr: 0.3262; 
+Momentum: 0.801033; L2Regularization: 0.0125157; InitLearnRate: 4.98661e-05
+AUC: 0.7789; 
+ConfusionMatrix:
+25	13	
+1	4	
+Threshold:   0.35
+#Genes = 5205; #Genes_compressed = 3331
+Stage 1 Ends
+
+
+
+
+Run2
+SnowFall: 0
+Method: tsne
+Distance: euclidean
+Use Previous Model: n
+Stage 1
+Net: resnet50
+ObjFcnMeasure: accuracy
+Stage: 1; Test Accuracy: 0.2558; ValErr: 0.3972; 
+Momentum: 0.801033; L2Regularization: 0.0125157; InitLearnRate: 4.98661e-05
+AUC: 0.6158; 
+ConfusionMatrix:
+7	31	
+1	4	
+Threshold:   0.30
+#Genes = 7472; #Genes_compressed = 4729
+Stage 1 Ends
+
+
+Run2
+SnowFall: 0
+Method: tsne
+Distance: euclidean
+Use Previous Model: n
+Stage 2
+Net: resnet50
+ObjFcnMeasure: accuracy
+Stage: 2; Test Accuracy: 0.6047; ValErr: 0.4184; 
+Momentum: 0.801033; L2Regularization: 0.0125157; InitLearnRate: 4.98661e-05
+AUC: 0.5368; 
+ConfusionMatrix:
+23	15	
+2	3	
+Threshold:   0.30
+#Genes = 4684; #Genes_compressed = 3518
+Stage 2 Ends
+
+
+Run2
+SnowFall: 0
+Method: tsne
+Distance: euclidean
+Use Previous Model: n
+Stage 3
+Net: resnet50
+ObjFcnMeasure: accuracy
+Stage: 3; Test Accuracy: 0.6744; ValErr: 0.2979; 
+Momentum: 0.801033; L2Regularization: 0.0125157; InitLearnRate: 4.98661e-05
+AUC: 0.3842; 
+ConfusionMatrix:
+28	10	
+4	1	
+Threshold:   0.30
+#Genes = 2619; #Genes_compressed = 2093
+Stage 3 Ends
+
+
+Run2
+SnowFall: 0
+Method: tsne
+Distance: euclidean
+Use Previous Model: n
+Stage 4
+Net: resnet50
+ObjFcnMeasure: accuracy
+Stage: 4; Test Accuracy: 0.7442; ValErr: 0.4468; 
+Momentum: 0.801033; L2Regularization: 0.0125157; InitLearnRate: 4.98661e-05
+AUC: 0.5842; 
+ConfusionMatrix:
+31	7	
+4	1	
+Threshold:   0.30
+#Genes = 822; #Genes_compressed = 679
+Stage 4 Ends
+
