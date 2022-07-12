@@ -316,7 +316,7 @@ Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
 ### Winning Kaggle competition by Mark Peng
 Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
 
-*Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.*
+*Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.* [here](https://www.kaggle.com/c/lish-moa/discussion/201510)
 
 Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
 
