@@ -33,14 +33,18 @@ In this example, multi-omics example data (PDX_Paclitaxel) is used which is stor
 
 1. File: open Example1.m file in the Matlab Editor.
 
-2. Set up parameters by changing `Parameter.m` file. Based on your hardware, change `Parm.miniBatchSize` (default 512) and `Parm.ExecutionEnvironment` (default multi-gpu. If you don't want to see the training progress plot by CNN then set `Parm.trainingPlot=none`. Alternatively, leave all parameters  at their default values.
+2. Set up parameters by changing `Parameter.m` file. Based on your hardware requirements, change `Parm.miniBatchSize` (default is 512) and `Parm.ExecutionEnvironment` (default is multi-gpu). If you don't want to see the training progress plot produced by CNN training, then set `Parm.trainingPlot=none`. Alternatively, leave all the parameters to their default values.
 
-3. Dataset calling: since the dataset name is `dataset1.mat`, the variable `DSETnum=1` (at Line 17 of Example1.m) has been used. If the name of the dataset is `datasetX.m` then variable `DSETnum` should be `X`.
+3. Dataset calling: since the dataset name is `dataset1.mat`, the variable `DSETnum=1` (at Line 17 of Example1.m) has been used. If the name of the dataset is `datasetX.m` then variable `DSETnum` should be set as `X`.
 
 4. Example1.m file uses function DeepInsight3D.m. This function has two parts: 1) tabular data to image convertion using `func_Prepare_Data.m`, and 2) CNN training using resent50 (default or change as required) using `func_TrainModel.m`.
+
 5. The output is AUC (for 2-class problem only), C (confusion matrx) and Accuracy of the test set (at Line 28). It also gives ValErr which is the validation error.
-6. By default, trained CNN models (such as model.mat, 0*.mat) and converted data (either Out1.mat or Out2.mat) will be saved in folder /Models/Run1/ and figures will be stored in folder /FIGS/Run1/. The saving of files are done by calling `func_SaveModels.m` and `func_SaveFigs.m`
-7. The execution results are stored in `DeepInsight3D_Results.txt` file in /DeepInsight3D_pkg/ folder.
+
+6. By default, trained CNN models (such as model.mat, 0*.mat) and converted data (either Out1.mat or Out2.mat) will be saved in folder /Models/Run1/ and figures will be stored in folder /FIGS/Run1/. The saving of files are done by calling the functions `func_SaveModels.m` and `func_SaveFigs.m`
+
+7. The execution results are stored in `DeepInsight3D_Results.txt` file in the /DeepInsight3D_pkg/ folder.
+
 8. A few messages will be displayed by running Example1.m on the Command Window of Matlab, such as
 
     ```
@@ -67,7 +71,7 @@ In this example, multi-omics example data (PDX_Paclitaxel) is used which is stor
 
     *Note that the above values might differ.*
 
-    Objective function image will be shown for the Bayesian Optimization Technique (BOT). By default 'no BOT' will be applied; i.e. `Parm.MaxObj=1`. However, if BOT is required then change parameter `Parm.MaxObj' value higher than 1. If it is set as '20' then 20 objective functions will be searched for hyperparameters tuning and the best one (with the minimum validation error) will be selected.
+    Objective function figure will be shown for the Bayesian Optimization Technique (BOT). By default 'no BOT' will be applied; i.e. `Parm.MaxObj=1`. However, if BOT is required then change parameter `Parm.MaxObj' to a value higher than 1. If it is set as 'Parm.MaxObj=20' then 20 objective functions will be searched for tuning hyperparameters and the best one (with the minimum validation error) will be selected.
     
     Results file: check `DeepInsight3D_Results.txt` for more information, such as
     ```
