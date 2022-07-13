@@ -20,7 +20,7 @@ Sharma A, et al. ...  TBA
 2. Download example dataset from the following link:
     `http://emu.src.riken.jp/DeepInsight/download_files/dataset1.mat`
    
-   Move the dataset to the `Data` folder. The dataset path will look like this: `/DeepInsight3D_pkg/Data/dataset1.mat`
+   Move the dataset to the `Data` folder inside `DeepInsight3D_pkg` folder. The dataset path will look like this: `/DeepInsight3D_pkg/Data/dataset1.mat`
 
 3. Follow the link given in Step 2 to download PDX_Paclitaxel multi-omics data the RNA-seq data (caution: data size is 88MB). The dataset is given in .mat file format of Matlab.
 
