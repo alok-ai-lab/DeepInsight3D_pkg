@@ -214,9 +214,9 @@ Steps:
 
 A number of parameters/variables are used to control the DeepFeature_pkg. The details are given hereunder
 
-1. `Parm.Method` (selection dimensionality reduction technique)
+1. `Parm.Method` (select dimensionality reduction technique)
 
-    Dimensionality reduction technique can be considered as one of the following methods; 1) tSNE 2) Principal component analysis (PCA) 3) kernel PCA, 4) uniform manifold approximation and projection (umap). For umap you can use python or R scripts (please see umapa_Rmatlab.m).
+    Dimensionality reduction technique (DRT) can be considered as one of the following methods; 1) tSNE 2) Principal component analysis (PCA) 3) kernel PCA, 4) uniform manifold approximation and projection (umap). For umap you can use python or R scripts (please see umapa_Rmatlab.m). Please note that these DRTs are not used in the conventional manner. Only the element locations are obtained by DRTs, and the reduction of features or dimensions is NOT performed.
 
     Select this variable in Parameter.m file or after calling `Parm = Parameter(DSETnum)` change
 
