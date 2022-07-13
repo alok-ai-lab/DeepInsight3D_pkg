@@ -5,6 +5,11 @@ DeepInsight3D has 3 main components. 1) conversion of multi-layered non-image sa
 
 This approach builds a 3D-image by arranging similar elements (or genes) together and dissimilar apart, and then by mapping the multi-layered non-image values on to these aligned pixel locations. This approach employs CNN for element or gene selection on non-image data. 
 
+### DeepInsight3D tested on:
+OS: Linux Ubuntu 20.02
+Matlab version: 2021a
+GPU A100 (2 parallel)
+
 # Reference 
 Sharma A, et al. ...  TBA
 
