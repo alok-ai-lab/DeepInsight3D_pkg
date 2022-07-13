@@ -205,7 +205,7 @@ Steps:
 
 5. Extraction of Gene Names (optional): This option is useful for enrichment analysis. Two files for extraction of genes are GeneNames_Extract.m and GeneNames.m. The list of names of genes is stored in `~/DeepInsight3D_pkg/Models/RunY/StageX/` folder.
 
-    After running feature selection function, the results will be stored in the corresponding RunY and StageX folders (where X and Y are integers 1,2,3…). If it is required to find the gene IDs/names of the obtained subset for each cancer type, then execute `GeneNames_Extract` function. Go to Line 4, and set the `Out_Stages` variable. For e.g. if Stage 2 has been saved inside Run1 after executing `func_FS_class_basedCAM`, use `Out_Stages = 2`. Then go to Line 6 and define `FileRun`. For example, it is set as `FileRun = ‘Run1’`.
+    After running feature selection function, the results will be stored in the corresponding RunY and StageX folders (where X and Y are integers 1,2,3…). If it is required to find the gene IDs/names of the obtained subset for each cancer type, then execute `GeneNames_Extract` function. Go to Line 4, and set the `Out_Stages` variable. For e.g. if Stage 2 has been saved inside Run1 after executing `func_FS_class_basedCAM`, use `Out_Stages = 2`. Then go to Line 6 and define `FileRun`. 
 
     The gene list per class will be generated. If there are 10 cancer-types, then 10 files will be generated. In addition, one file with all genes listed will be generated (e.g. GeneList_UnCmprss.txt). The results will be stored in `~/Models/RunY/StageX` as RunYStageX.tar.gz and a folder with the same results will also be created as RunYStageX. In this example, it will be stored in the folder `Run1Stage2` and Run1Stage2.tar.gz.
 
