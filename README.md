@@ -138,14 +138,14 @@ Running Example3.m will execute iterative procedure. However, steps are describe
 
 Steps:
 1)  Set up parameters by changing Parameters.m file, otherwise leave it with default values.
-2)  Provide the path od dataset in Parameter.m file by changing "Data_path" variable. In this example, it is set as /DeepInsight3D_pkg/Data/
+2)  Provide the path of the dataset in Parameter.m file by changing "Data_path" variable. In this example, it is set as /DeepInsight3D_pkg/Data/
 3)  Define the stored dataset using 
         `DSETnum=1;`
 5)  Call parameters using 
         `Parm = Parameters(DSETnum);`
-7)  For testing code, reduce the MaxEpochs e.g. 
+7)  For quick testing code, reduce the MaxEpochs e.g. 
         `Parm.MaxEpochs = 5;`
-    for better training it would be good to have higher value of MaxEpochs.
+    for better training it would be good to have a higher value of MaxEpochs.
     
 9)  Set the CAM Threshold 
         `Parm.Threshold = 0.3;`
@@ -174,7 +174,7 @@ Steps:
 * Similarly, all the figures will be stored in a folder
 `~/DeepInsight3D_pkg/FIGS/Run1/StageX` where X is the current stage.
 
-* If the loop continues then the value of X will increment to 2, 3, 4, …; i.e., repeating DeepInsight3D model to find a smaller subset of features/genes.
+* If the loop continues then the value of X will increment to 1, 2, 3, …; i.e., repeating DeepInsight3D model to find a smaller subset of features/genes.
 
 ## Description of files and folders
 
