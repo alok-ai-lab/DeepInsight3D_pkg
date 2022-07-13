@@ -92,7 +92,7 @@ Running Example2.m will perform feature selection. However, steps (in Matlab) ar
     ```
 2.  Dataset is still the same therefore parameter `DSETnum=1`. Call parameters using `Parm = Parameters(DSETnum);`
 3.  Set CAM threshold e.g. `Parm.Threshold = 0.35;`
-4.  Execute classed-based CAm using `func_FS_class_basedCAM(Parm);` as shown in Example2.m (Line 29). The following information will be displayed on the screen.
+4.  Execute classed-based CAM using `func_FS_class_basedCAM(Parm);` as shown in Example2.m (Line 29). The following information will be displayed on the screen.
 
     ```
     Feature selection begins
