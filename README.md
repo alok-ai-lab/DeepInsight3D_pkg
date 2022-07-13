@@ -83,7 +83,7 @@ In this example, multi-omics example data (PDX_Paclitaxel) is used which is stor
 ### Example 2: Feature selection of saved model
 In this example, feature selection using class-activation maps (CAMs) is executed. It is assumed that Example 1 has been run before running this example. Running Example 1 will save model files in Models/Run.. folder, and also the data file Out1.mat (if norm1 is used) or Out2.mat (if norm2 is used).
 
-Running Example2.m will perform feature selection. However, steps are described here under.
+Running Example2.m will perform feature selection. However, steps (in Matlab) are described here under.
 
 1.  copy saved model files in the correct folders
     ```
