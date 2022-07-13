@@ -242,7 +242,7 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
     Random parameter seed to split the data.
 
-6.  `Parm.NetName`: use pre-trained nets such as `resnet50`, `inceptionresnetv2`, `nasnetlarge`, `efficientnetb0`, `googlenet` and so on.
+6.  `Parm.NetName`: use pre-trained nets such as `resnet50`, `inceptionresnetv2`, `nasnetlarge`, `efficientnetb0`, `googlenet` and so on. See a list of pre-trained nets from Matlab link [here](https://www.mathworks.com/help/deeplearning/ug/pretrained-convolutional-neural-networks.html)
 
 7.  `Parm.ExecutionEnvironment`: execution environment based on your hardware. Options are `cpu`, `gpu`, `multi-gpu`, `parallel`, and `auto`. Please check trainingOptions (Matlab) for further details.
 
