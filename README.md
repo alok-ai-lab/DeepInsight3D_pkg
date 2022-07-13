@@ -320,7 +320,7 @@ b) *Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory fo
 
 c) Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
 
-d) DeepInsight EfficientNet-B3 Noisy Student (###PyTorch###) [here](https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook)
+d) DeepInsight EfficientNet-B3 Noisy Student (PyTorch) [here](https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook)
 
 ### Usage of DeepInsight by Subject Area
 ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Docs_by_Subject.png?raw=true)
