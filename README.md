@@ -314,13 +314,13 @@ Overall weblink [here](https://alok-ai-lab.github.io/DeepInsight/)
 *Sharma A, Lysenko A, Boroevich KA, Vans E, Tsunoda T, DeepFeature: feature selection in nonimage data using convolutional neural network, Briefings in Bioinformatics, 22(6), 2021.*
 
 ### Winning Kaggle competition by Mark Peng
-Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
+a) Competition details: Mechanisms of Actions (MoA) Predictions https://www.kaggle.com/competitions/lish-moa
 
-*Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.* [here](https://www.kaggle.com/c/lish-moa/discussion/201510)
+b) *Peng et al., 1st 1st PlaceWinning Solution– Hungry for Gold. Laboratory for Innovation Science at Harvard, Mechanisms of Action (MoA) Prediction Competition 2020.* [here](https://www.kaggle.com/c/lish-moa/discussion/201510)
 
-Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
+c) Organizers: MIT and Harvard University (Connectivity Map [here](https://clue.io/))
 
-DeepInsight EfficientNet-B3 Noisy Student (PyTorch) [here](https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook)
+d) DeepInsight EfficientNet-B3 Noisy Student (###PyTorch###) [here](https://www.kaggle.com/code/markpeng/deepinsight-efficientnet-b3-noisystudent/notebook)
 
 ### Usage of DeepInsight by Subject Area
 ![alt text](https://github.com/alok-ai-lab/DeepInsight3D/blob/main/Docs_by_Subject.png?raw=true)
