@@ -11,7 +11,7 @@ Matlab version: 2021a;
 GPU A100 (2 parallel);
 
 # Reference 
-Sharma A*, Lysenko A*, Boroevich K, Tsunoda T*, DeepInsight-3D for precision oncology: an improved anti-cancer drug response prediction from high-dimensional multi-omics data with convolutional neural networks, bioRxiv, https://doi.org/10.1101/2022.07.14.500140 
+Sharma A*, Lysenko A*, Boroevich K, Tsunoda T*, DeepInsight-3D for precision oncology: an improved anti-cancer drug response prediction from high-dimensional multi-omics data with convolutional neural networks, bioRxiv, 2022 https://doi.org/10.1101/2022.07.14.500140 
 
 ## Download and Install
 
