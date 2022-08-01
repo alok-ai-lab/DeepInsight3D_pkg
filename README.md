@@ -24,7 +24,7 @@ Sharma A*, Lysenko A*, Boroevich K, Tsunoda T*, DeepInsight-3D for precision onc
 
 2. Download example dataset from the following link (caution: data size is 88MB):
 
-    [riken.jp/dataset1.mat](http://emu.src.riken.jp/DeepInsight/download_files/dataset1.mat)
+    `http://emu.src.riken.jp/DeepInsight/download_files/dataset1.mat`
    
    Move the dataset to the `Data` folder inside `DeepInsight3D_pkg` folder. The dataset path will look like this: `/DeepInsight3D_pkg/Data/dataset1.mat`
 
