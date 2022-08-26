@@ -3,6 +3,7 @@ function [Accuracy,auc,C,probs] = DeepInsight_test_CAM(dset,Out)
 
 %Out.bestIdx = BayesObject.IndexOfMinimumTrace(end);
 %Out.fileName = BayesObject.UserDataTrace{Out.bestIdx};
+auc=[];
 current_dir=pwd;
 cd DeepResults
 savedStruct = load(Out.fileName);
