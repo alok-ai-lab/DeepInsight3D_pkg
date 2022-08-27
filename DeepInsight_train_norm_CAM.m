@@ -34,7 +34,8 @@ if Parm.UsePreviousModel == 0
 %         ObjFcn = makeObjFcn_Squeezenet_OthMes(XTrain,YTrain,XValidation,YValidation); % working-model
 %     end
     if Parm.TransLearn==1
-        ObjFcn = makeObjFcn_TransLearn(XTrain,YTrain,XValidation,YValidation,Parm);
+        %ObjFcn = makeObjFcn_TransLearn(XTrain,YTrain,XValidation,YValidation,Parm);
+        ObjFcn = makeObjFcn(XTrain,YTrain,XValidation,YValidation,Parm);
     else
         if Parm.ParallelNet==1
             if Parm.MaxObj>1
@@ -64,7 +65,8 @@ else
 
     %ObjFcn = makeObjFcn_Squeezenet(XTrain,YTrain,XValidation,YValidation); % working-model
     if Parm.TransLearn==1
-        ObjFcn = makeObjFcn_TransLearn(XTrain,YTrain,XValidation,YValidation,Parm);
+        %ObjFcn = makeObjFcn_TransLearn(XTrain,YTrain,XValidation,YValidation,Parm);
+        ObjFcn = makeObjFcn(XTrain,YTrain,XValidation,YValidation,Parm);
     else
         if Parm.ParallelNet==1
             if Parm.MaxObj>1
