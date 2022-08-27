@@ -85,7 +85,8 @@ if Parm.TransLearn==1
     Mod = load(Parm.TLfile);
     ModF = load(Mod.fileName);
     cd(curr_dir);
-    Parm.DAGnet = ModF.trainedNet;
+    %Parm.DAGnet = ModF.trainedNet;
+    Parm.net = ModF.trainedNet;
 end
 
 % Dataset name
