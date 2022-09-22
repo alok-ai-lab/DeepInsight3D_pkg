@@ -78,17 +78,21 @@ end
 % NOTE: AUC is for two class problem only, otherwise its value would be 'NaN
 
 %find validation probabilities
+if Parm.ValidRatio>0
 Data.XTest = Data.XValidation;
 Data.YTest = Data.YValidation;
 [Accuracy_val,AUC_val,C_val,prob_val] = DeepInsight_test_CAM(Data,model);
 prb.val=prob_val;
 prb.YValidation=Data.YValidation;
-if Test_Empty==1
-    fprintf('\nNOTE: Test set is NOT available!\n');
-    fprintf('Performance measures are for Validation SET\n');
-    Accuracy=Accuracy_val;
-    AUC=AUC_val;
-    C=C_val;
+    if Test_Empty==1
+        fprintf('\nNOTE: Test set is NOT available!\n');
+        fprintf('Performance measures are for Validation SET\n');
+        Accuracy=Accuracy_val;
+        AUC=AUC_val;
+        C=C_val;
+    end
+else
+    Accuracy_val=[]; AUC_val=[]; C_val=[]; prb.val=[]; prb.YValidation=[];
 end
 
 % %find train probabilities
@@ -115,5 +119,3 @@ InitLR = f.options.InitialLearnRate;
 if isempty(AUC)==1
     AUC=nan;
 end
-
-
