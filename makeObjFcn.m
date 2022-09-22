@@ -8,7 +8,6 @@ net = Parm.net;% coder.loadDeepLearningNetwork(Parm.net);
 measure=Parm.ObjFcnMeasure;
 %Augment=Parm.Augment;
 
-
 ObjFcn = @valErrorFun;
     function [valError,cons,fileName] = valErrorFun(optVars)
         imageSize = [size(XTrain,1) size(XTrain,2) size(XTrain,3)];
@@ -33,8 +32,6 @@ ObjFcn = @valErrorFun;
 
         [learnableLayer,classLayer] = findLayersToReplace(lgraph);
 
-        %numClasses = numel(categories(imdsTrain.Labels));
-        %numClasses = numel(categories(YTrain));
         if isa(learnableLayer,'nnet.cnn.layer.FullyConnectedLayer')
             newLearnableLayer = fullyConnectedLayer(numClasses, ...
             'Name','new_fc', ...
@@ -52,6 +49,18 @@ ObjFcn = @valErrorFun;
 
         newClassLayer = classificationLayer('Name','new_classoutput');
         lgraph = replaceLayer(lgraph,classLayer.Name,newClassLayer);
+
+        %initialize all weights and biases (untrained net)
+%         tmp_net = lgraph.saveobj;
+%         for i=1:length(lgraph.Layers) 
+%             if isa(lgraph.Layers(i,1),'nnet.cnn.layer.Convolution2DLayer')
+%                 tmp_net.Layers(i,1).Weights=leakyHe(size(tmp_net.Layers(i,1).Weights));%randn(size(tmp_net.Layers(i,1).Weights))* 0.0001;
+%                 tmp_net.Layers(i,1).Bias=leakyHe(size(tmp_net.Layers(i,1).Bias))+1;% randn(size(tmp_net.Layers(i,1).Bias))*0.00001 + 1;
+%             end
+%     
+%         end
+%         lgraph = lgraph.loadobj(tmp_net);
+        %#################################################
 
         %figure('Units','normalized','Position',[0.3 0.3 0.4 0.4]);
         %plot(lgraph)
@@ -82,7 +91,9 @@ ObjFcn = @valErrorFun;
 % augimdsTrain = augmentedImageDatastore(inputSize(1:2),XValidation,YValidation, ...
 %     'DataAugmentation',imageAugmenter);
         augimdsTrain = augmentedImageDatastore(inputSize(1:2),XTrain,YTrain);
+        if Parm.ValidRatio>0
         augimdsValidation = augmentedImageDatastore(inputSize(1:2),XValidation,YValidation);
+        end
 % augimdsTrain = augmentedImageDatastore(inputSize(1:2),imdsTrain);
 %augimdsValidation = augmentedImageDatastore(inputSize(1:2),imdsValidation);
 
@@ -107,7 +118,8 @@ ObjFcn = @valErrorFun;
         % valFrequency = floor(numel(augimdsTrain.Files)/miniBatchSize);
         valFrequency = floor(size(XTrain,4)/miniBatchSize);
         %gpuDevice(1);
-        options = trainingOptions('sgdm', ...
+        if Parm.ValidRatio>0
+            options = trainingOptions('sgdm', ...
             'InitialLearnRate',optVars.InitialLearnRate,...
             'Momentum',optVars.Momentum,...
             'ExecutionEnvironment',Parm.ExecutionEnvironment,...
@@ -119,6 +131,18 @@ ObjFcn = @valErrorFun;
             'ValidationFrequency',20, ...
             'Verbose',false, ...
             'Plots',Parm.trainingPlot);
+        else
+             options = trainingOptions('sgdm', ...
+            'InitialLearnRate',optVars.InitialLearnRate,...
+            'Momentum',optVars.Momentum,...
+            'ExecutionEnvironment',Parm.ExecutionEnvironment,...
+            'MiniBatchSize',miniBatchSize, ...
+            'L2Regularization',optVars.L2Regularization,...
+            'MaxEpochs',Parm.MaxEpochs, ...
+            'Shuffle','every-epoch', ...
+            'Verbose',false, ...
+            'Plots',Parm.trainingPlot);
+        end
 %Shuffle,'every-epoch'
         
 %         options = trainingOptions('rmsprop', ...
@@ -143,14 +167,16 @@ ObjFcn = @valErrorFun;
         trainedNet = trainNetwork(augimdsTrain,lgraph,options);
         close(findall(groot,'Tag','NNET_CNN_TRAININGPLOT_FIGURE'))
         
-        [YPredicted,probs] = classify(trainedNet,augimdsValidation);
-        if strcmp(measure,'accuracy')
-            valError = 1 - mean(YPredicted == YValidation);
-            display('accuracy');
-        else
-            [a,b,c,auc] = perfcurve(YValidation,probs(:,2),'2');
-            valError = 1 - auc;
-            display('auc based');
+        if Parm.ValidRatio>0
+            [YPredicted,probs] = classify(trainedNet,augimdsValidation);
+        
+            if strcmp(measure,'accuracy')
+                valError = 1 - mean(YPredicted == YValidation);
+                disp('accuracy');
+            else
+                [a,b,c,auc] = perfcurve(YValidation,probs(:,2),'2');
+                valError = 1 - auc;
+                disp('auc based');
 %         C=confusionmat(YValidation,YPredicted);
 %         TP=C(1,1);
 %         FN=C(1,2);
@@ -159,56 +185,14 @@ ObjFcn = @valErrorFun;
 %         Sen=TP/(TP+FN);
 %         Spec=TN/(TN+FP);
 %         valError = 1 - Spec;
+            end
+        else
+            valError = 100;
+            disp('Validation data not used!')
         end
-        
         fileName = num2str(valError) + ".mat";
         save(fileName,'trainedNet','valError','options','-v7.3')
         cons = [];
-        
-%         options = trainingOptions('sgdm',...
-%             'InitialLearnRate',optVars.InitialLearnRate,...
-%             'Momentum',optVars.Momentum,...
-%             'ExecutionEnvironment','multi-gpu',...
-%             'MaxEpochs',10, ...
-%             'LearnRateSchedule','piecewise',...
-%             'LearnRateDropPeriod',35,...
-%             'LearnRateDropFactor',0.1,...
-%             'MiniBatchSize',miniBatchSize,...
-%             'L2Regularization',optVars.L2Regularization,...
-%             'Shuffle','every-epoch',...
-%             'Verbose',false,...
-%             'Plots','none',...
-%             'ValidationData',{XValidation,YValidation},...
-%             'ValidationPatience',Inf,...
-%             'ValidationFrequency',validationFrequency);
-  %'Plots','none',...     
-  %'MaxEpochs',100,...
-  
-       %  'Plots','training-progress',...
-        
-%         imageAugmenter = imageDataAugmenter( ...
-%     'RandRotation',[-5,5], ...
-%     'RandXTranslation',[-3 3], ...
-%     'RandYTranslation',[-3 3]);
-%  
-%         datasource = augmentedImageDatastore(imageSize,XTrain,YTrain,...
-%             'DataAugmentation',imageAugmenter,...
-%             'OutputSizeMode','randcrop');
-        
-
-
-
-%                 trainedNet = trainNetwork(datasource,lgraph,options);
-%            trainedNet = trainNetwork(XTrain,YTrain,lgraph,options);
-%         close(findall(groot,'Tag','NNET_CNN_TRAININGPLOT_FIGURE'))
-%         
-%                YPredicted = classify(trainedNet,XValidation);
-%         valError = 1 - mean(YPredicted == YValidation);
-%         
-%              fileName = num2str(valError) + ".mat";
-%         save(fileName,'trainedNet','valError','options')
-%         cons = [];
-        
     end
 end
  

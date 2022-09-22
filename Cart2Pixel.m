@@ -75,6 +75,9 @@ elseif strcmp(lower(Q.Method),'umap')==1
     disp('umap is used');
     Y=umap_Rmatlab(Q.data); % R script
     %Y=umap_matlab(Q.data); %python script
+elseif strcmp(lower(Q.Method),'lda')==1
+    disp('lda is used');
+    Y=LDAproj(Q.data,Q.Labels);
 else
     if size(Q.data,1)<5000
         disp('tSNE with exact algorithm is used');

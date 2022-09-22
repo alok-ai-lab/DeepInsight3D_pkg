@@ -1,4 +1,4 @@
-function Sel = LogRegRed(dset)
+function Sel = LogRegRed(dset,N)
 
 current_dir=pwd;
 YTrain=[];
@@ -6,7 +6,9 @@ for c=1:dset.class
     YTrain = [YTrain;ones(dset.num_tr(c),1)*c];;
 end
 
-N = 5000;
+if nargin<2
+    N = 5000;
+end
 GeneSel_flag=0;
 
 cd ~/MatWorks/Unsup/liblinear-2.11/matlab/

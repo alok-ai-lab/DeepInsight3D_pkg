@@ -171,15 +171,31 @@ if Parm.Norm==0
         Out1.orgYValidation = Out1.YValidation;
         if Parm.AugMeth==1
             [Out1.XTrain,Out1.YTrain] = augmentDeepInsight(Out1.XTrain,Out1.YTrain);
+            if Parm.ValidRatio>0
             [Out1.XValidation,Out1.YValidation] = augmentDeepInsight(Out1.XValidation,Out1.YValidation);
+            end
+        elseif Parm.AugMeth==2
+            [Out1.XTrain,Out1.YTrain] = augmentDeepInsight2(Out1.XTrain,Out1.YTrain,Parm.aug_tr);
+            if Parm.ValidRatio>0
+            [Out1.XValidation,Out1.YValidation] = augmentDeepInsight2(Out1.XValidation,Out1.YValidation,Parm.aug_val);
+            end
+        elseif Parm.AugMeth==3
+            [Out1.XTrain,Out1.YTrain,Out1.XValidation,Out1.YValidation]=augmentGAN(Out1.XTrain,Out1.YTrain,...
+                Out1.XValidation,Out1.YValidation,Out1.xp,Out1.yp,Parm.aug_tr,Parm.aug_val);
         else
             [Out1.XTrain,Out1.YTrain] = augmentDeepInsight2(Out1.XTrain,Out1.YTrain,Parm.aug_tr);
             [Out1.XValidation,Out1.YValidation] = augmentDeepInsight2(Out1.XValidation,Out1.YValidation,Parm.aug_val);
+            [Out1.XTrain,Out1.YTrain,Out1.XValidation,Out1.YValidation]=augmentGAN(Out1.XTrain,Out1.YTrain,...
+                Out1.XValidation,Out1.YValidation,Out1.xp,Out1.yp,Parm.aug_tr,Parm.aug_val);
         end
     end
     A = Out1.A;
     B = Out1.B;
     C = Out1.C;
+    if strcmp(lower(Parm.Blur),'yes')==1
+	disp('Blur technique used');    
+        Out1=BlurTech_for_Out(Out1);
+    end
     save('Out1.mat','-struct','Out1','-v7.3');
 
     Out2 = Prepare_Data_norm(dset,2,Parm);
@@ -191,15 +207,31 @@ if Parm.Norm==0
         Out2.orgYValidation = Out2.YValidation;
         if Parm.AugMeth==1            
             [Out2.XTrain,Out2.YTrain] = augmentDeepInsight(Out2.XTrain,Out2.YTrain);
+            if Parm.ValidRatio>0
             [Out2.XValidation,Out2.YValidation] = augmentDeepInsight(Out2.XValidation,Out2.YValidation);
+            end
+        elseif Parm.AugMeth==2
+            [Out2.XTrain,Out2.YTrain] = augmentDeepInsight2(Out2.XTrain,Out2.YTrain,Parm.aug_tr);
+            if Parm.ValidRatio>0
+            [Out2.XValidation,Out2.YValidation] = augmentDeepInsight2(Out2.XValidation,Out2.YValidation,Parm.aug_val);
+            end
+        elseif Parm.AugMeth==3
+            [Out2.XTrain,Out2.YTrain,Out2.XValidation,Out2.YValidation]=augmentGAN(Out2.XTrain,Out2.YTrain,...
+                Out2.XValidation,Out2.YValidation,Out2.xp,Out2.yp,Parm.aug_tr,Parm.aug_val);
         else
             [Out2.XTrain,Out2.YTrain] = augmentDeepInsight2(Out2.XTrain,Out2.YTrain,Parm.aug_tr);
             [Out2.XValidation,Out2.YValidation] = augmentDeepInsight2(Out2.XValidation,Out2.YValidation,Parm.aug_val);
+            [Out2.XTrain,Out2.YTrain,Out2.XValidation,Out2.YValidation]=augmentGAN(Out2.XTrain,Out2.YTrain,...
+                Out2.XValidation,Out2.YValidation,Out2.xp,Out2.yp,Parm.aug_tr,Parm.aug_val);          
         end
     end
     A = Out2.A;
     B = Out2.B;
     C = Out2.C;
+    if strcmp(lower(Parm.Blur),'yes')==1
+	disp('Blur technique used');    
+        Out2=BlurTech_for_Out(Out2);
+    end
     save('Out2.mat','-struct','Out2','-v7.3');
 elseif Parm.Norm==1
     Out1 = Prepare_Data_norm(dset,1,Parm);
@@ -211,15 +243,31 @@ elseif Parm.Norm==1
         Out1.orgYValidation = Out1.YValidation;
         if Parm.AugMeth==1
             [Out1.XTrain,Out1.YTrain] = augmentDeepInsight(Out1.XTrain,Out1.YTrain);
+            if Parm.ValidRatio>0
             [Out1.XValidation,Out1.YValidation] = augmentDeepInsight(Out1.XValidation,Out1.YValidation);
+            end
+        elseif Parm.AugMeth==2
+            [Out1.XTrain,Out1.YTrain] = augmentDeepInsight2(Out1.XTrain,Out1.YTrain,Parm.aug_tr);
+            if Parm.ValidRatio>0
+            [Out1.XValidation,Out1.YValidation] = augmentDeepInsight2(Out1.XValidation,Out1.YValidation,Parm.aug_val);
+            end
+        elseif Parm.AugMeth==3
+            [Out1.XTrain,Out1.YTrain,Out1.XValidation,Out1.YValidation]=augmentGAN(Out1.XTrain,Out1.YTrain,...
+                Out1.XValidation,Out1.YValidation,Out1.xp,Out1.yp,Parm.aug_tr,Parm.aug_val);
         else
             [Out1.XTrain,Out1.YTrain] = augmentDeepInsight2(Out1.XTrain,Out1.YTrain,Parm.aug_tr);
             [Out1.XValidation,Out1.YValidation] = augmentDeepInsight2(Out1.XValidation,Out1.YValidation,Parm.aug_val);
+            [Out1.XTrain,Out1.YTrain,Out1.XValidation,Out1.YValidation]=augmentGAN(Out1.XTrain,Out1.YTrain,...
+                Out1.XValidation,Out1.YValidation,Out1.xp,Out1.yp,Parm.aug_tr,Parm.aug_val);
         end
     end
     A = Out1.A;
     B = Out1.B;
     C = Out1.C;
+    if strcmp(lower(Parm.Blur),'yes')==1
+	disp('Blur technique used');    
+        Out1=BlurTech_for_Out(Out1);
+    end
     save('Out1.mat','-struct','Out1','-v7.3');
 elseif Parm.Norm==2
     Out2 = Prepare_Data_norm(dset,2,Parm);
@@ -231,15 +279,31 @@ elseif Parm.Norm==2
         Out2.orgYValidation = Out2.YValidation;
         if Parm.AugMeth==1
             [Out2.XTrain,Out2.YTrain] = augmentDeepInsight(Out2.XTrain,Out2.YTrain);
+            if Parm.ValidRatio>0
             [Out2.XValidation,Out2.YValidation] = augmentDeepInsight(Out2.XValidation,Out2.YValidation);
+            end
+        elseif Parm.AugMeth==2
+            [Out2.XTrain,Out2.YTrain] = augmentDeepInsight2(Out2.XTrain,Out2.YTrain,Parm.aug_tr);
+            if Parm.ValidRatio>0
+            [Out2.XValidation,Out2.YValidation] = augmentDeepInsight2(Out2.XValidation,Out2.YValidation,Parm.aug_val);
+            end
+        elseif Parm.AugMeth==3
+            [Out2.XTrain,Out2.YTrain,Out2.XValidation,Out2.YValidation]=augmentGAN(Out2.XTrain,Out2.YTrain,...
+                Out2.XValidation,Out2.YValidation,Out2.xp,Out2.yp,Parm.aug_tr,Parm.aug_val);
         else
             [Out2.XTrain,Out2.YTrain] = augmentDeepInsight2(Out2.XTrain,Out2.YTrain,Parm.aug_tr);
             [Out2.XValidation,Out2.YValidation] = augmentDeepInsight2(Out2.XValidation,Out2.YValidation,Parm.aug_val);
+            [Out2.XTrain,Out2.YTrain,Out2.XValidation,Out2.YValidation]=augmentGAN(Out2.XTrain,Out2.YTrain,...
+                Out2.XValidation,Out2.YValidation,Out2.xp,Out2.yp,Parm.aug_tr,Parm.aug_val); 
         end
     end
     A = Out2.A;
     B = Out2.B;
     C = Out2.C;
+    if strcmp(lower(Parm.Blur),'yes')==1
+	disp('Blur technique used');    
+        Out2=BlurTech_for_Out(Out2);
+    end
     save('Out2.mat','-struct','Out2','-v7.3');
 end
 

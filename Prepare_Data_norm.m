@@ -101,6 +101,12 @@ end
 
 
 Q.Method = Parm.Method;%['tSNE'];
+if strcmp(lower(Q.Method),'lda')==1
+    Q.Labels=[];
+    for j=1:dset.class
+        Q.Labels=[Q.Labels;ones(dset.num_tr(j),1)*j];
+    end
+end
 Q.Max_Px_Size = Parm.Max_Px_Size; % <----- NOTE
 Q.SnowFall = Parm.SnowFall;
 if any(strcmp('Dist',fieldnames(Parm)))==1
@@ -146,8 +152,33 @@ if Parm.FeatureMap>0
             disp('Methylation data used for Cart2Pixel');
         case 3
             disp('Mutation data used for Cart2Pixel');
+        case 4
+            disp('Concatenate all the layers for Cart2Pixel');
     end
-    Q.data = dset.Xtrain(:,:,Parm.FeatureMap); 
+    if Parm.FeatureMap==4
+        if size(dset.Xtrain,3)==3
+            Q.data = [dset.Xtrain(:,:,1),dset.Xtrain(:,:,2),...
+                dset.Xtrain(:,:,3)]; 
+            if strcmp(Q.Method,'lda')==1
+                Q.Labels = [Q.Labels;Q.Labels;Q.Labels];
+            end
+        elseif size(dset.Xtrain,3)==2
+            Q.data=[dset.Xtrain(:,:,1),dset.Xtrain(:,:,2)];
+            if strcmp(Q.Method,'lda')==1
+                Q.Labels = [Q.Labels;Q.Labels];
+            end
+        elseif size(dset.Xtrain,3)==1
+            Q.data=[dset.Xtrain(:,:,1)];
+            disp(['Since data has only 1 layer, ' ...
+                'values FeatureMap>0 will use the same algorithm']);
+        else
+            disp('Error: data formatis  not correct!');
+            Out=[];
+            return
+        end
+    else
+        Q.data = dset.Xtrain(:,:,Parm.FeatureMap); 
+    end
 end
 if Parm.MPS_Fix==1
     [tmp,Out.xp,Out.yp,Out.A,Out.B,Out.Base] = Cart2Pixel(Q,Q.Max_Px_Size,Q.Max_Px_Size);
@@ -160,6 +191,17 @@ end
 % Out.A = max(Re_Out(:,1));
 % Out.B = max(Re_Out(:,2));
 % clear Re_Out;
+
+% assignment
+if strcmp(Parm.Assignment,'yes')==1
+   fprintf('\nAssignment started..\n');	
+   zp_tmp = assignment([Out.xp;Out.yp],'pixel',max([Out.A Out.B]));
+   Out.xp = zp_tmp(:,1)';
+   Out.yp = zp_tmp(:,2)';
+   clear zp_tmp   
+   fprintf('Assignment completed\n');
+end
+
 
 fprintf('\n Pixels: %d x %d\n',Out.A,Out.B);
 clear Q
