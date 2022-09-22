@@ -3,7 +3,7 @@ function Parm = Parameters(DSETnum)
 
 Parm.Method = ['tsne']; % 1) tSNE 2) kpca or 3) pca 4) umap 5) lda (supervised)
 Parm.Dist = 'euclidean';% For tSNE only 1) mahalanobis 2) cosine 3) euclidean 4) chebychev 5) correlation 6) hamming (default: cosine)
-Parm.Blur = 'yes'; % type 'yes' for applying blur technique (see BlurTech.m)
+Parm.Blur = 'no'; % type 'yes' for applying blur technique (see BlurTech.m) % NOT included in this version
 Parm.Assignment = 'no'; % type 'yes' for applying Assignment technique or 'no'
 Parm.Max_Px_Size = 224; %227 for SqueezeNet, 224 EfficientNetB0 (however, not necessary to change)
 Parm.MPS_Fix=1;
@@ -24,7 +24,7 @@ Parm.SaveModels = 'y'; % 'y' for saving models or 'n' for not saving
 Parm.Stage=1; % '1', '2', '3', '4', '5' depending upon which stage of DeepInsight-FS to run.
 Parm.ObjFcnMeasure = 'accuracy';%'accuracy' or 'other' % select objective function valError (accuracy or other (for other measures eg sensitiity, specificity, auc etc)
 Parm.MaxObj = 1; % maximum objective functions for Bayesian Optimization Technique
-Parm.ParallelNet = 1;%0; % if '1' then parallel net (from DeepInsight project) will be used using makeObjFcn2.m
+Parm.ParallelNet = 0; % if '1' then parallel net (from DeepInsight project) will be used using makeObjFcn2.m
 if Parm.MaxObj==1
     Parm.InitialLearnRate=4.98661e-5;
     Parm.Momentum=0.801033;
