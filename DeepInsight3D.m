@@ -26,11 +26,11 @@ end
 fprintf(fid2,'Use Previous Model: %s\n',Parm.UsePrevModel);
 
 % Convert tabular data to image
-display('Conversion of tabular data to images is starting ...');
+disp('Conversion of tabular data to images is starting ...');
 [InputSz1,InputSz2,InputSz3,Init_dim,SET] = func_Prepare_Data(Parm);
-display('Conversion finished and saved as Out1.mat or Out2.mat!');
+disp('Conversion finished and saved as Out1.mat or Out2.mat!');
 
-% Run CNN net
+% Run CNN netqw
 display('Training model begins: Net1');
 [Accuracy,ValErr,Momentum,L2Reg,...
     InitLR,AUC,C,prob] = func_TrainModel(Parm);
@@ -52,7 +52,7 @@ for nC=1:size(C,2)
     fprintf(fid2,'%d\t',C(nC,:));
     fprintf(fid2,'\n');
 end
-display('Training model ends');
+disp('Training model ends');
 fprintf('\n');
 
 fclose(fid2);
