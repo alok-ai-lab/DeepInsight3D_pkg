@@ -56,14 +56,18 @@ end
 
 if size(Data.XTrain,3)==1
     if Test_Empty==0
-    Data.XTest = cat(3,Data.XTest,Data.XTest,Data.XTest);
+    	Data.XTest = cat(3,Data.XTest,Data.XTest,Data.XTest);
     end
-    Data.XValidation = cat(3,Data.XValidation,Data.XValidation,Data.XValidation);
+    if Parm.ValidRatio>0
+    	Data.XValidation = cat(3,Data.XValidation,Data.XValidation,Data.XValidation);
+    end
 elseif size(Data.XTrain,3)==2
     if Test_Empty==0
-    Data.XTest = cat(3,Data.XTest(:,:,1,:),Data.XTest(:,:,2,:),Data.XTest(:,:,1,:));
+    	Data.XTest = cat(3,Data.XTest(:,:,1,:),Data.XTest(:,:,2,:),Data.XTest(:,:,1,:));
     end
-    Data.XValidation = cat(3,Data.XValidation(:,:,1,:),Data.XValidation(:,:,2,:),Data.XValidation(:,:,1,:));
+    if Parm.ValidRatio>0
+    	Data.XValidation = cat(3,Data.XValidation(:,:,1,:),Data.XValidation(:,:,2,:),Data.XValidation(:,:,1,:));
+    end
 end
 Data = rmfield(Data,'XTrain');
 Data = rmfield(Data,'YTrain');
@@ -71,26 +75,26 @@ Data = rmfield(Data,'YTrain');
 %Data = rmfield(Data,'YValidation');
 
 if Test_Empty==0
-[Accuracy,AUC,C,prob_test] = DeepInsight_test_CAM(Data,model);
-prb.test=prob_test;
-prb.YTest=Data.YTest;
+   [Accuracy,AUC,C,prob_test] = DeepInsight_test_CAM(Data,model);
+   prb.test=prob_test;
+   prb.YTest=Data.YTest;
 end
 % NOTE: AUC is for two class problem only, otherwise its value would be 'NaN
 
 %find validation probabilities
 if Parm.ValidRatio>0
-Data.XTest = Data.XValidation;
-Data.YTest = Data.YValidation;
-[Accuracy_val,AUC_val,C_val,prob_val] = DeepInsight_test_CAM(Data,model);
-prb.val=prob_val;
-prb.YValidation=Data.YValidation;
-if Test_Empty==1
-    fprintf('\nNOTE: Test set is NOT available!\n');
-    fprintf('Performance measures are for Validation SET\n');
-    Accuracy=Accuracy_val;
-    AUC=AUC_val;
-    C=C_val;
-end
+   Data.XTest = Data.XValidation;
+   Data.YTest = Data.YValidation;
+   [Accuracy_val,AUC_val,C_val,prob_val] = DeepInsight_test_CAM(Data,model);
+   prb.val=prob_val;
+   prb.YValidation=Data.YValidation;
+   if Test_Empty==1
+      fprintf('\nNOTE: Test set is NOT available!\n');
+      fprintf('Performance measures are for Validation SET\n');
+      Accuracy=Accuracy_val;
+      AUC=AUC_val;
+      C=C_val;
+   end
 else
     Auccuracy_val=[]; AUC_val=[]; C_val=[]; prb.val=[];prb.YValidation=[];
 end
