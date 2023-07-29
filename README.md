@@ -15,20 +15,20 @@ Sharma A*, Lysenko A*, Boroevich K, Tsunoda T*, DeepInsight-3D for precision onc
 
 ## Download and Install
 
-1. Download Matlab package DeepInsight3D_pkg.tar.gz or the entire DeepInsight3D_pkg folder from the link above. Store it in your working directory. Gunzip and untar as follows:
+1. Download the Matlab package DeepInsight3D_pkg.tar.gz or the entire DeepInsight3D_pkg folder from the link above. Store it in your working directory. Gunzip and untar as follows:
 
     ```Matlab
     >> gunzip DeepInsight3D_pkg.tar.gz
     >> tar -xvf DeepInsight3D_pkg.tar
     ```
 
-2. Download example dataset from the following link (caution: data size is 88MB):
+2. Download the example dataset from the following link (caution: data size is 88MB):
 
     `http://emu.src.riken.jp/DeepInsight/download_files/dataset1.mat`
    
    Move the dataset to the `Data` folder inside `DeepInsight3D_pkg` folder. The dataset path will look like this: `/DeepInsight3D_pkg/Data/dataset1.mat`
 
-   This example data is PDX_Paclitaxel multi-omics data, it has 3 layers: RNA-seq, CNA and mutation. The dataset is given in struct format of Matlab. Use any other data in a similar struct format for DeepInsight3D model.
+   This example data is PDX_Paclitaxel multi-omics data, it has 3 layers: RNA-seq, CNA and mutation. The dataset is given in the struct format of Matlab. Use any other data in a similar struct format for DeepInsight3D model.
 
 3. Download and Install example CNN net such as ResNet-50 in Matlab, see details about ResNet-50 from MathWorks [link](https://www.mathworks.com/help/deeplearning/ref/resnet50.html). You may use different nets as desired.
 
@@ -39,7 +39,7 @@ In this example, multi-omics example data (PDX_Paclitaxel) is used which is stor
 
 1. File: open Example1.m file in the Matlab Editor.
 
-2. Set up parameters by changing `Parameter.m` file. Based on your hardware requirements, change `Parm.miniBatchSize` (default is 512) and `Parm.ExecutionEnvironment` (default is multi-gpu). If you don't want to see the training progress plot produced by CNN training, then set `Parm.trainingPlot=none`. Alternatively, leave all the parameters to their default values.
+2. Set up parameters by changing `Parameters.m` file. Based on your hardware requirements, change `Parm.miniBatchSize` (default is 512) and `Parm.ExecutionEnvironment` (default is multi-gpu). If you don't want to see the training progress plot produced by CNN training, then set `Parm.trainingPlot=none`. Alternatively, leave all the parameters to their default values.
 
 3. Dataset calling: since the dataset name is `dataset1.mat`, the variable `DSETnum=1` (at Line 17 of Example1.m) has been used. If the name of the dataset is `datasetX.m` then variable `DSETnum` should be set as `X`.
 
@@ -139,7 +139,7 @@ Running Example3.m will execute iterative procedure. However, steps are describe
 
 Steps:
 1)  Set up parameters by changing Parameters.m file, otherwise leave it with default values.
-2)  Provide the path of the dataset in Parameter.m file by changing "Data_path" variable. In this example, it is set as /DeepInsight3D_pkg/Data/
+2)  Provide the path of the dataset in Parameters.m file by changing "Data_path" variable. In this example, it is set as /DeepInsight3D_pkg/Data/
 3)  Define the stored dataset using 
         `DSETnum=1;`
 5)  Call parameters using 
@@ -219,7 +219,7 @@ A number of parameters/variables are used to control the DeepFeature_pkg. The de
 
     Dimensionality reduction technique (DRT) can be considered as one of the following methods; 1) tSNE 2) Principal component analysis (PCA) 3) kernel PCA, 4) uniform manifold approximation and projection (umap). For umap you can use python or R scripts (please see umapa_Rmatlab.m). Please note that these DRTs are not used in the conventional manner. Only the element locations are obtained by DRTs, and the reduction of features or dimensions is NOT performed.
 
-    Select this variable in Parameter.m file or after calling `Parm = Parameter(DSETnum)` change
+    Select this variable in Parameters.m file or after calling `Parm = Parameter(DSETnum)` change
 
     Parm.Method = ‘tSNE’, ‘kpca’, ‘pca’ or ‘umap’
 
