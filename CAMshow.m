@@ -1,6 +1,13 @@
 function CAMshow(im,CAM)
 
 imSize = size(im);
+if length(imSize)>2
+    if imSize(3)==1
+        im=cat(3,im,im,im);
+    end
+elseif length(imSize)==2
+    im=cat(3,im,im,im);
+end
 CAM = imresize(CAM,imSize(1:2));
 CAM = normalizeImage(CAM);
 CAM(CAM<0.2) = 0;
