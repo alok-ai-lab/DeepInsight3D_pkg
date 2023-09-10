@@ -2,6 +2,11 @@ function R = CAMcompute(Data,inputSize,net,netName,layerName,Dmat,Sample);
 % R = CAMcomputeR(classActivationMap);
 
 im = Data.XTrain(:,:,:,Sample); %cat(3,Data.XTrain(:,:,:,Sample),Data.XTrain(:,:,:,Sample),Data.XTrain(:,:,:,Sample));%imread('ngc6543a.jpg');
+if inputSize(3)==3
+    if size(im,3)==1
+        im=cat(3,im,im,im);
+    end
+end
 imResized = imresize(im,[inputSize(1),inputSize(2)]);
 %gpuDevice(1);
 %options=trainingOptions('sgdm','ExecutionEnvironment','gpu');
@@ -23,8 +28,8 @@ else
         CAM = imageActivations(:,:,classIds(1));
 end
 
-
-CAM = imresize(CAM,inputSize(1:2));
+imSize = size(im);
+CAM = imresize(CAM,imSize(1:2));
 CAM = normalizeImage(CAM);
 CAM(CAM<0.2) = 0;
 cmap = jet(255).*linspace(0,1,255)';
