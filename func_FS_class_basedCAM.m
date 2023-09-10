@@ -61,9 +61,10 @@ Dmat = 'R'; % R for Red; G for Green; B for Blue
 FIG=1;
 
 nclass = max(double(classes));
-Rclass=zeros(inputSize(1),inputSize(2),1,nclass);
+imSize = size(Data.XTrain(:,:,:,1));
+Rclass=zeros(imSize(1),imSize(2),1,nclass);
 for cls=1:nclass
-    R=zeros(inputSize(1),inputSize(2));
+    R=zeros(imSize(1),imSize(2));
     SMPLE = (double(Data.YTrain)==cls);
     Range=1:length(SMPLE);
     Range=Range(SMPLE);
