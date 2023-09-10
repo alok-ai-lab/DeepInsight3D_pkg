@@ -7,6 +7,7 @@ if inputSize(3)==3
         im=cat(3,im,im,im);
     end
 end
+
 imResized = imresize(im,[inputSize(1),inputSize(2)]);
 %gpuDevice(1);
 %options=trainingOptions('sgdm','ExecutionEnvironment','gpu');
