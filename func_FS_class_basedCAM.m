@@ -43,7 +43,7 @@ if strcmp(Parm.PATH{2}(end),'/')==0
     Parm.PATH{2} = [Parm.PATH{2},'/'];
 end
 
-inputSize = net.trainedNet.Layers(1).InputSize(1:2);
+inputSize = net.trainedNet.Layers(1).InputSize;
 classes = net.trainedNet.Layers(end).Classes;
 layerName = activationLayerName(netName);
 
